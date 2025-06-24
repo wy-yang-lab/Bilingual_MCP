@@ -27,6 +27,8 @@ class TerminologyChecker:
     def __init__(self, db_path: str = None):
         self.db_path = db_path or settings.DATABASE_URL.replace("sqlite:///", "")
         self.database = TerminologyDatabase(self.db_path)
+        # Initialize placeholder LLM provider (will be configured when API keys are supplied)
+        self.llm_provider = LLMProvider()
         logger.info(f"Terminology checker initialized with database: {self.db_path}")
     
     async def check_text(self, text: str, language: str, context: str = "") -> List[Dict]:
@@ -53,9 +55,9 @@ class TerminologyChecker:
             issues.extend(rule_violations)
             
             # 3. Check placeholder consistency
-        placeholder_issues = self._check_placeholders(text, language)
-        issues.extend(placeholder_issues)
-        
+            placeholder_issues = self._check_placeholders(text, language)
+            issues.extend(placeholder_issues)
+            
             # 4. Remove duplicates and sort by position
             issues = self._deduplicate_issues(issues)
             issues.sort(key=lambda x: x['start'])
@@ -81,22 +83,22 @@ class TerminologyChecker:
         
         for pattern, desc in placeholder_patterns:
             try:
-            matches = list(re.finditer(pattern, text))
-            for match in matches:
-                placeholder = match.group()
+                matches = list(re.finditer(pattern, text))
+                for match in matches:
+                    placeholder = match.group()
                     
                     # Basic validation - check for empty placeholders
                     if len(placeholder) <= 2 or placeholder in ['{}', '%s', '%d']:
-                    issues.append({
+                        issues.append({
                             "type": "placeholder_issue",
-                        "original": placeholder,
+                            "original": placeholder,
                             "suggestion": "Verify placeholder content",
-                        "start": match.start(),
-                        "end": match.end(),
+                            "start": match.start(),
+                            "end": match.end(),
                             "severity": "warning",
                             "reason": f"Empty or minimal {desc.lower()}",
                             "source": "validation"
-                    })
+                        })
             except re.error:
                 continue
         

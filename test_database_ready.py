@@ -66,8 +66,8 @@ def test_terminology_checking():
     en_terms = db.get_terms_by_language("en", limit=5)
     for i, term in enumerate(en_terms[:5], 1):
         # Handle different possible key names
-        source = term.get('source_term', term.get('term', term.get('text', 'Unknown')))
-        target = term.get('target_term', term.get('translation', term.get('suggestion', 'Unknown')))
+        source = term.get('source_term', term.get('term', term.get('text', term.get('source', 'Unknown'))))
+        target = term.get('target_term', term.get('translation', term.get('suggestion', term.get('target', 'Unknown'))))
         print(f"   {i}. {source} → {target}")
     
     print(f"\n✅ Database is {'READY' if stats.get('total_terms', 0) > 100000 else 'NOT READY'} for production use!")

@@ -14,7 +14,7 @@ class TestAPIEndpoints:
         """Test the root endpoint."""
         response = client.get("/")
         assert response.status_code == 200
-        assert response.json()["message"] == "MCP-UI-Terminology Checker"
+        assert response.json()["message"] == "MCP-UI-Terminology Checker with LLM Integration"
     
     def test_health_check(self):
         """Test the health check endpoint."""
@@ -81,12 +81,13 @@ class TestAPIEndpoints:
         
         data = response.json()
         assert "resources" in data
-        assert len(data["resources"]) == 2
+        assert len(data["resources"]) == 3
         
-        # Check that both EN and JP resources are listed
+        # Check that EN, JP, and LLM resources are listed
         uris = [resource["uri"] for resource in data["resources"]]
         assert "terminology://en" in uris
         assert "terminology://jp" in uris
+        assert "llm://analysis" in uris
     
     def test_list_resources_unauthorized(self):
         """Test resources endpoint without authorization."""
