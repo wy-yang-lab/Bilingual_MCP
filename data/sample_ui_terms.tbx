@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<martif type="TBX" xml:lang="en">
+  <martifHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sample UI Terminology</title>
+      </titleStmt>
+      <sourceDesc>
+        <p>Sample terminology for UI localization</p>
+      </sourceDesc>
+    </fileDesc>
+  </martifHeader>
+  
+  <body>
+    <!-- Login terminology -->
+    <termEntry id="login_001">
+      <descrip type="subjectField">UI</descrip>
+      <descrip type="definition">User authentication action</descrip>
+      <langSet xml:lang="en">
+        <tig>
+          <term>sign in</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+        <tig>
+          <term>login</term>
+          <termNote type="termType">deprecated</termNote>
+        </tig>
+      </langSet>
+      <langSet xml:lang="ja">
+        <tig>
+          <term>サインイン</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+        <tig>
+          <term>ログイン</term>
+          <termNote type="termType">deprecated</termNote>
+        </tig>
+      </langSet>
+    </termEntry>
+    
+    <!-- Email terminology -->
+    <termEntry id="email_001">
+      <descrip type="subjectField">UI</descrip>
+      <descrip type="definition">Electronic mail address</descrip>
+      <langSet xml:lang="en">
+        <tig>
+          <term>email</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+        <tig>
+          <term>e-mail</term>
+          <termNote type="termType">deprecated</termNote>
+        </tig>
+      </langSet>
+      <langSet xml:lang="ja">
+        <tig>
+          <term>Eメール</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+        <tig>
+          <term>メール</term>
+          <termNote type="termType">admitted</termNote>
+        </tig>
+      </langSet>
+    </termEntry>
+    
+    <!-- Button terminology -->
+    <termEntry id="cancel_001">
+      <descrip type="subjectField">UI</descrip>
+      <descrip type="definition">Cancel button</descrip>
+      <langSet xml:lang="en">
+        <tig>
+          <term>Cancel</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+      </langSet>
+      <langSet xml:lang="ja">
+        <tig>
+          <term>キャンセル</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+      </langSet>
+    </termEntry>
+    
+    <!-- Settings terminology -->
+    <termEntry id="settings_001">
+      <descrip type="subjectField">UI</descrip>
+      <descrip type="definition">Application settings</descrip>
+      <langSet xml:lang="en">
+        <tig>
+          <term>Settings</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+        <tig>
+          <term>Preferences</term>
+          <termNote type="termType">admitted</termNote>
+        </tig>
+      </langSet>
+      <langSet xml:lang="ja">
+        <tig>
+          <term>設定</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+      </langSet>
+    </termEntry>
+    
+    <!-- Dashboard terminology -->
+    <termEntry id="dashboard_001">
+      <descrip type="subjectField">UI</descrip>
+      <descrip type="definition">Main application dashboard</descrip>
+      <langSet xml:lang="en">
+        <tig>
+          <term>Dashboard</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+      </langSet>
+      <langSet xml:lang="ja">
+        <tig>
+          <term>ダッシュボード</term>
+          <termNote type="termType">preferred</termNote>
+        </tig>
+      </langSet>
+    </termEntry>
+    
+  </body>
+</martif> 

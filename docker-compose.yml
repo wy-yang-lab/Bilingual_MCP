@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mcp-terminology-checker:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=true
+      - API_TOKEN=TEST_TOKEN
+    volumes:
+      - ./data:/app/data
+      - ./app:/app/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Streamlit demo client
+  # streamlit-demo:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile.streamlit
+  #   ports:
+  #     - "8501:8501"
+  #   depends_on:
+  #     - mcp-terminology-checker
+  #   environment:
+  #     - API_URL=http://mcp-terminology-checker:8000 

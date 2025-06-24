@@ -1,0 +1,24 @@
+# Server Configuration
+HOST=0.0.0.0
+PORT=8000
+DEBUG=true
+
+# Security
+API_TOKEN=your-secure-api-token-here
+
+# Database
+DATABASE_URL=sqlite:///./data/terms.db
+
+# LLM Integration - Add your API keys here
+OPENAI_API_KEY=sk-your-openai-api-key-here
+ANTHROPIC_API_KEY=your-anthropic-api-key-here
+
+# LLM Settings
+DEFAULT_LLM_PROVIDER=openai
+LLM_MODEL=gpt-3.5-turbo
+LLM_TEMPERATURE=0.1
+MAX_TOKENS=500
+
+# Supported Languages
+DEFAULT_LANGUAGE=en
+SUPPORTED_LANGUAGES=en,jp 
